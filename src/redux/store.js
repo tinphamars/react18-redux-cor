@@ -1,6 +1,12 @@
-import { createStore } from "redux";
-import rootReducer from "./reducer";
+import { configureStore } from "@reduxjs/toolkit";
+import { StudentSlice } from "./StudentSlice.ts";
+import { tynCounterSlice } from "./tynCounterSlice.ts";
 
-const store = createStore(rootReducer);
+const store = configureStore({
+  reducer: {
+    counter: tynCounterSlice.reducer,
+    student: StudentSlice.reducer,
+  },
+});
 
 export default store;
